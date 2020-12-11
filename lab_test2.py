@@ -78,9 +78,11 @@ class Document:
         Returns: none
         """
 
-
+        # Error check to stop user moving the cursor beyond the given space
         if steps > len(characters):
             raise ValueError("Cursor moved beyond the length of the string")
+        # elif type(steps) is not int:
+        #     raise TypeError("Please only enter a integer")
 
         try:
             self.cursor -= steps
@@ -97,7 +99,7 @@ characters = 'fake mews'
 for letter in characters:
     doc.insert(letter)
 
-doc.backward(44)
+doc.backward(4)
 doc.delete()
 doc.insert('n')
 doc.save()

@@ -77,7 +77,17 @@ class Document:
 
         Returns: none
         """
-        self.cursor -= steps
+
+
+        if steps > len(characters):
+            raise ValueError("Cursor moved beyond the length of the string")
+
+        try:
+            self.cursor -= steps
+        except Exception as e:
+            print(e)
+
+
 
 
 # initialising an object and using the class
@@ -87,7 +97,7 @@ characters = 'fake mews'
 for letter in characters:
     doc.insert(letter)
 
-doc.backward(4)
+doc.backward(44)
 doc.delete()
 doc.insert('n')
 doc.save()
